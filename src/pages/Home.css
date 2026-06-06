@@ -429,3 +429,56 @@ overflow-x: hidden;
 .delete-btn:hover {
   background: #fee2e2;
 }
+.game-mode-card {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 12px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.game-mode-card h3 {
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.game-mode-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.mode-btn {
+  flex: 1;
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  background: #f1f5f9;
+
+  color: #334155;
+
+  transition: 0.25s;
+}
+
+.mode-btn:hover {
+  transform: translateY(-2px);
+}
+
+.active-mode {
+  background: linear-gradient(
+    135deg,
+    #00c853,
+    #00e676
+  );
+
+  color: white;
+}

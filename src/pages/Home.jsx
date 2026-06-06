@@ -108,6 +108,19 @@ const filteredPlayers = players.filter(
           <h3>Total Players</h3>
           <span>{players.length}</span>
         </div>
+        <div className="game-mode-card">
+  <h3>Game Mode</h3>
+
+  <div className="game-mode-buttons">
+    <button className="mode-btn active-mode">
+      🏏 Team Mode
+    </button>
+
+    <button className="mode-btn">
+      👤 Singles Mode
+    </button>
+  </div>
+</div>
 
         <div className="quick-actions-card">
   <h3>Quick Actions</h3>

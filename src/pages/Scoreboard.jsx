@@ -486,151 +486,121 @@ if (matchFinished) {
   )
 }
 
-        <div className="score-card">
-          <h1>
-            {match.score}/
-            {match.wickets}
-          </h1>
-
-          <p>
-            Overs{" "}
-            {
-              match.oversCompleted
-            }
-            .
-            {
-              match.ballsInOver
-            }
-            {" / "}
-            {match.overs}
-          </p>
-        </div>
-
-        {match.strikerSystem ? (
-          <div className="players-card">
-            <div>
-              <span>
-                Striker
-              </span>
-
-              <strong>
-                {getPlayerName(
-                  match.striker
-                )}
-              </strong>
-
+        <div className="unified-card">
+          <div className="unified-score-section">
+            <div className="score-display">
+              <h1>
+                {match.score}/
+                {match.wickets}
+              </h1>
               <p>
-                {
-                  match.strikerRuns
-                }
-                (
-                {
-                  match.strikerBalls
-                }
-                )
-              </p>
-            </div>
-
-            <div>
-              <span>
-                Non-Striker
-              </span>
-
-              <strong>
-                {getPlayerName(
-                  match.nonStriker
-                )}
-              </strong>
-
-              <p>
-                {
-                  match.nonStrikerRuns
-                }
-                (
-                {
-                  match.nonStrikerBalls
-                }
-                )
+                Overs {match.oversCompleted}.{match.ballsInOver} / {match.overs}
               </p>
             </div>
           </div>
-        ) : (
-          <div className="players-card">
-            <div>
-              <span>
-                Batter
-              </span>
 
-              <strong>
-                {getPlayerName(
-                  match.singleBatter
-                )}
-              </strong>
+          <div className="unified-players-section">
+            {match.strikerSystem ? (
+              <>
+                <div className="unified-player">
+                  <div className="player-badge">S</div>
+                  <div className="player-info">
+                    <span>Striker</span>
+                    <strong>
+                      {getPlayerName(
+                        match.striker
+                      )}
+                    </strong>
+                    <p>
+                      {match.strikerRuns}
+                      ({match.strikerBalls})
+                    </p>
+                  </div>
+                </div>
 
-              <p>
-                {
-                  match.batterRuns
-                }
-                (
-                {
-                  match.batterBalls
-                }
-                )
-              </p>
-            </div>
-          </div>
-        )}
-
-        <div className="innings-card">
-          <h3>
-            Bowler
-          </h3>
-
-          <strong>
-            {getPlayerName(
-              match.currentBowler
+                <div className="unified-player">
+                  <div className="player-badge">NS</div>
+                  <div className="player-info">
+                    <span>Non-Striker</span>
+                    <strong>
+                      {getPlayerName(
+                        match.nonStriker
+                      )}
+                    </strong>
+                    <p>
+                      {match.nonStrikerRuns}
+                      ({match.nonStrikerBalls})
+                    </p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="unified-player">
+                <div className="player-badge">B</div>
+                <div className="player-info">
+                  <span>Batter</span>
+                  <strong>
+                    {getPlayerName(
+                      match.singleBatter
+                    )}
+                  </strong>
+                  <p>
+                    {match.batterRuns}
+                    ({match.batterBalls})
+                  </p>
+                </div>
+              </div>
             )}
-          </strong>
+          </div>
 
-          {(() => {
-  const stats =
-    match.bowlingStats?.[
-      match.currentBowler
-    ] || {
-      runs: 0,
-      wickets: 0,
-      balls: 0,
-    };
+          <div className="unified-bowler-section">
+            <div className="unified-player">
+              <div className="player-badge">B</div>
+              <div className="player-info">
+                <span>Bowler</span>
+                <strong>
+                  {getPlayerName(
+                    match.currentBowler
+                  )}
+                </strong>
+                {(() => {
+                  const stats =
+                    match.bowlingStats?.[
+                      match.currentBowler
+                    ] || {
+                      runs: 0,
+                      wickets: 0,
+                      balls: 0,
+                    };
 
-   console.log({
-  innings: match.innings,
-  score: match.score,
-  target: match.target,
+                   console.log({
+                  innings: match.innings,
+                  score: match.score,
+                  target: match.target,
 
-  inningsComplete,
+                  inningsComplete,
 
-  matchFinished,
+                  matchFinished,
 
-  allOut: match.allOut,
+                  allOut: match.allOut,
 
-  awaitingBowler:
-    match.awaitingBowler,
+                  awaitingBowler:
+                    match.awaitingBowler,
 
-  showBowlerModal,
+                  showBowlerModal,
 
-  showBatterModal,
-});
+                  showBatterModal,
+                });
 
-  return (
-    <p>
-      Runs: {stats.runs}
-      {" | "}
-      Wickets: {stats.wickets}
-      {" | "}
-      Balls: {stats.balls}
-    </p>
-  );
-})()}
+                  return (
+                    <p>
+                      {stats.runs}R | {stats.wickets}W | {stats.balls}B
+                    </p>
+                  );
+                })()}
+              </div>
+            </div>
+          </div>
         </div>
 
         {inningsComplete ||

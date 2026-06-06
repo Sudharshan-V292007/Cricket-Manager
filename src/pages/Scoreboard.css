@@ -1,0 +1,694 @@
+.scoreboard-page {
+  min-height: 100vh;
+
+  padding: 20px;
+
+  padding-bottom: 110px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fafc,
+      #eef2ff,
+      #f1f5f9
+    );
+}
+
+.match-banner {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.match-banner span {
+  color: #ef4444;
+
+  font-weight: 800;
+}
+
+.score-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e293b,
+      #334155
+    );
+
+  border-radius: 30px;
+
+  padding: 34px 24px;
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  box-shadow:
+    0 25px 60px
+    rgba(
+      15,
+      23,
+      42,
+      0.35
+    );
+}
+
+.score-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  top: -120px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      34,
+      197,
+      94,
+      0.15
+    );
+}
+
+.score-card h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 4rem;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.score-card p {
+  margin-top: 12px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.75
+  );
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+.score-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 30px;
+
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+}
+
+.innings-card {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 20px;
+
+  margin-bottom: 12px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(
+      15,
+      23,
+      42,
+      0.06
+    );
+}
+
+.innings-card h3 {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.8rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.innings-card strong {
+  font-size: 1.1rem;
+
+  color: #0f172a;
+
+  font-weight: 800;
+}
+
+.players-card {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.players-card > div {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 18px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e293b
+    );
+
+  color: white;
+
+  box-shadow:
+    0 15px 35px
+    rgba(
+      15,
+      23,
+      42,
+      0.18
+    );
+}
+
+.players-card > div::before {
+  content: "";
+
+  position: absolute;
+
+  top: -40px;
+  right: -40px;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
+}
+
+.players-card span {
+  display: block;
+
+  color: #94a3b8;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 8px;
+}
+
+.players-card strong {
+  display: block;
+
+  color: white;
+
+  font-size: 1.3rem;
+
+  font-weight: 800;
+}
+
+.players-card p {
+  margin-top: 8px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.action-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+.extra-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.action-grid button,
+.extra-grid button {
+  height: 78px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  font-size: 1.5rem;
+
+  font-weight: 900;
+
+  color: #0f172a;
+
+  box-shadow:
+    0 10px 25px
+    rgba(
+      15,
+      23,
+      42,
+      0.08
+    );
+
+  transition: 0.25s;
+}
+
+.action-grid button:active,
+.extra-grid button:active {
+  transform: scale(0.95);
+}
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,.55);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 5000;
+}
+
+.batter-modal {
+  width: 92%;
+
+  max-width: 420px;
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.25);
+}
+
+.batter-modal h2 {
+  margin-top: 0;
+
+  margin-bottom: 18px;
+
+  color: #0f172a;
+}
+
+.new-batter-btn {
+  width: 100%;
+
+  border: none;
+
+  padding: 16px;
+
+  margin-bottom: 10px;
+
+  border-radius: 16px;
+
+  background: #f1f5f9;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.new-batter-btn:hover {
+  background: #e2e8f0;
+}
+
+.innings-complete-card {
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 28px;
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.08);
+}
+
+.next-innings-btn {
+  width: 100%;
+
+  border: none;
+
+  border-radius: 18px;
+
+  padding: 16px;
+
+  margin-top: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #16a34a,
+      #22c55e
+    );
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.free-hit-banner {
+  position: relative;
+
+  margin: 0 0 18px;
+
+  padding: 14px 20px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  font-size: 1rem;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #ff6a00,
+    #ff9500,
+    #ffbf00
+  );
+
+  box-shadow:
+    0 10px 30px
+      rgba(
+        255,
+        153,
+        0,
+        0.35
+      ),
+    inset 0 1px 0
+      rgba(
+        255,
+        255,
+        255,
+        0.35
+      );
+
+  overflow: hidden;
+
+  animation:
+    freeHitPulse
+      1.5s infinite;
+}
+
+.free-hit-banner::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    ),
+    transparent
+  );
+
+  animation:
+    freeHitShine
+      2s linear infinite;
+}
+
+@keyframes freeHitPulse {
+  0% {
+    transform: scale(1);
+
+    box-shadow:
+      0 10px 30px
+        rgba(
+          255,
+          153,
+          0,
+          0.35
+        );
+  }
+
+  50% {
+    transform: scale(
+      1.02
+    );
+
+    box-shadow:
+      0 15px 40px
+        rgba(
+          255,
+          153,
+          0,
+          0.55
+        );
+  }
+
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 10px 30px
+        rgba(
+          255,
+          153,
+          0,
+          0.35
+        );
+  }
+}
+
+@keyframes freeHitShine {
+  from {
+    left: -120%;
+  }
+
+  to {
+    left: 150%;
+  }
+}
+
+.target-banner {
+  margin-bottom: 16px;
+
+  padding: 14px 18px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+  );
+
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+.target-text {
+  margin: 0;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+}
+
+.extra-grid button:first-child {
+  background:
+    linear-gradient(
+      135deg,
+      #ef4444,
+      #dc2626
+    );
+
+  color: white;
+}
+
+.action-grid button:nth-child(5) {
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  color: white;
+}
+
+.action-grid button:nth-child(6) {
+  background:
+    linear-gradient(
+      135deg,
+      #f59e0b,
+      #facc15
+    );
+
+  color: white;
+}
+
+.players-card > div:last-child {
+  background:
+    linear-gradient(
+      135deg,
+      #111827,
+      #374151
+    );
+}
+
+.action-grid button:hover,
+.extra-grid button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 18px 35px
+    rgba(
+      15,
+      23,
+      42,
+      0.15
+    );
+}
+
+.action-grid button:active,
+.extra-grid button:active {
+  transform: scale(0.94);
+}
+
